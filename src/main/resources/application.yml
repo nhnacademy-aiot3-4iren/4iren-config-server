@@ -1,0 +1,31 @@
+# Spring Cloud Config Server 설정 파일
+spring:
+  application:
+    name: 4iren-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/nhnacademy-aiot3-4iren/4iren-config-repo.git
+          username: ${GITHUB_USERNAME}
+          password: ${GITHUB_TOKEN}
+          default-label: main
+
+# 암호화 키 설정
+encrypt:
+  key: ${CONFIG_ENCRYPT_KEY}
+
+# 유레카 설정
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://localhost:8761/eureka/}
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+
+# 배포 환경에선 로그 레벨을 error로 설정
+logging:
+  level:
+    root: error

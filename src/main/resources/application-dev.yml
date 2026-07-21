@@ -1,0 +1,8 @@
+# 서버 포트 설정
+server:
+  port: 8888
+
+# 개발 환경에선 로깅 레벨을 info로 설정
+logging:
+  level:
+    root: info
