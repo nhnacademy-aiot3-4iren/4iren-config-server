@@ -6,7 +6,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/nhnacademy-aiot3-4iren/4iren-config-repo.git
+          uri: ${GITHUB_REPO_URI}
           username: ${GITHUB_USERNAME}
           password: ${GITHUB_TOKEN}
           default-label: main
