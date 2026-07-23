@@ -2,14 +2,30 @@ package com.nhnacademy.config;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.encrypt.TextEncryptor;
 
-@SpringBootTest
+@SpringBootTest(
+        properties={"CONFIG_ENCRYPT_KEY=my-secret-key"}
+)
 class ConfigApplicationTests {
 
     @Autowired
     private TextEncryptor textEncryptor;
+
+    @Value("${encrypt.key}")
+    private String encryptKey;
+
+    /**
+     * encrypt.key 값이 정상적으로 주입되는지 확인하는 테스트 메서드
+     */
+    @Test
+    void check_encrypt_key() {
+        System.out.println("=======================================");
+        System.out.println("encrypt.key: '"+encryptKey+"'");
+        System.out.println("=======================================");
+    }
 
     /**
      * 문자열을 암호화하는 테스트 메서드
