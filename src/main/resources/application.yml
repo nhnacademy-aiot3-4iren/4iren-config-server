@@ -28,4 +28,10 @@ eureka:
 # 배포 환경에선 로그 레벨을 error로 설정
 logging:
   level:
-    root: error
+    root: info
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
