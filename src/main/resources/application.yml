@@ -6,7 +6,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/nhnacademy-aiot3-4iren/4iren-config-repo.git
+          uri: ${GITHUB_REPO_URI}
           username: ${GITHUB_USERNAME}
           password: ${GITHUB_TOKEN}
           default-label: main
@@ -28,4 +28,10 @@ eureka:
 # 배포 환경에선 로그 레벨을 error로 설정
 logging:
   level:
-    root: error
+    root: info
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
